@@ -65,11 +65,11 @@ I explored both the color and gradient thresholds based approach to generate a b
 	2. L of LUV can also detect white better than yellow
 	3. B of Lab is doing good job on detecting yellow.
 	
-For color based approach, I used combination of S channel for HLS, L from LUV and B from Lab to create binary image. The function is defined in  `apply_color_thresholds()`. Following image shows the visualizations.
+For color based approach, I used combination of L from LUV and B from Lab to create binary image. The function is defined in  `apply_color_thresholds()`. Following image shows the visualizations.
 
 ![alt text][image4]
 
-For finaly binary image, I used combined color and gradent based approaches. Here are my output for this step for all test images.
+For finaly binary image, I used only color based approaches. Here are my output for this step for all test images.
 
 ![alt text][image5]
 
@@ -79,7 +79,7 @@ The code for my perspective transform includes a function called `create_birds_e
 
 ```python
 src_perspective = np.float32([[280,669],[1027,669],[679,447],[600,447]])
-dst_perspective = np.float32([[280,720],[1027,720],[1027,0],[280,0]])
+dst_perspective = np.float32([[280,720],[900,720],[900,0],[280,0]])
 ```
 
 Also at this step I defined a region of interest where the expected lane lines will be . The function is defined in the 1st cell under the title Step3: Perspective Transform. The function is called `region_of_interest()'
@@ -163,11 +163,7 @@ This pipeline is defined in the 3rd cell under the same title by the name of fun
 
 This is the result of algorithm on the test video.
 
-[![Advanced Lane Detection with Smoothing](http://img.youtube.com/vi/5HKC0a_817M/0.jpg)](https://www.youtube.com/watch?v=5HKC0a_817M)
-
-To compare it against the detection without smoothing is given here.
-
-[![Advanced Lane Detection (Comparison of Smoothing)](http://img.youtube.com/vi/jqcxObyJOp0/0.jpg)](https://www.youtube.com/watch?v=jqcxObyJOp0)
+[![Advanced Lane Detection with Smoothing](http://img.youtube.com/vi/TD6X9G4iW34/0.jpg)](https://www.youtube.com/watch?v=TD6X9G4iW34)
 
 ---
 
